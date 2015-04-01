@@ -74,7 +74,7 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 			return;
 		}
 
-		super.onRefreshing(false);
+//		super.onRefreshing(false); 将其放在最下面，解决下拉时直接结束出现不复位的bug
 
 		final LoadingLayout origLoadingView, listViewLoadingView, oppositeListViewLoadingView;
 		final int selection, scrollToY;
@@ -124,6 +124,8 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 			// Smooth scroll as normal
 			smoothScrollTo(0);
 		}
+
+		super.onRefreshing(false);
 	}
 
 	@Override
